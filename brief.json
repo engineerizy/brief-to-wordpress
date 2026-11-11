@@ -1,0 +1,12 @@
+{
+  "campaign": "Launch your studio website",
+  "audience": "Small design teams",
+  "goal": "Get a WordPress site your team can update, with reusable page sections and a clear handover.",
+  "points": [
+    "Reusable sections built in the WordPress block editor",
+    "A content review before your pages go live",
+    "A handover that shows your team how to make updates"
+  ],
+  "action": "Book a consultation",
+  "action_path": "/contact"
+}

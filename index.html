@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Review a page plan and deliver it as an editable WordPress draft.">
+  <title>Brief to WordPress</title>
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="wordmark" href="/" aria-label="Brief to WordPress home">Brief<span> → </span>WordPress</a>
+      <div class="environment" id="environment">Loading workspace</div>
+    </div>
+  </header>
+  <main class="shell">
+    <div class="intro">
+      <div>
+        <h1>Page drafting workspace</h1>
+        <p>Build a WordPress draft from a brief and a Figma frame. Review the exact revision before delivery.</p>
+      </div>
+      <label class="recent">Recent drafts
+        <select id="recent"><option value="">Choose a run</option></select>
+      </label>
+    </div>
+    <ol class="steps" aria-label="Draft progress">
+      <li id="step-brief" aria-current="step"><span></span>Brief</li>
+      <li id="step-review"><span></span>Review</li>
+      <li id="step-approval"><span></span>Approval</li>
+      <li id="step-draft"><span></span>WordPress draft</li>
+    </ol>
+    <div id="error" class="error" role="alert" hidden></div>
+    <div class="workspace">
+      <section class="card input-card" aria-labelledby="brief-heading">
+        <div class="card-title">
+          <div><h2 id="brief-heading">Page brief</h2><p>Define the offer and the action readers should take.</p></div>
+          <button type="button" id="reset" class="text-button">Load example</button>
+        </div>
+        <form id="brief-form">
+          <label>Page title<input name="campaign" required maxlength="100"></label>
+          <label>Audience<input name="audience" required maxlength="100"></label>
+          <label>Offer<textarea name="goal" required maxlength="550" rows="3"></textarea></label>
+          <label>Key points <small>Two to four lines</small><textarea name="points" required rows="4"></textarea></label>
+          <div class="field-pair">
+            <label>Button text<input name="action" required maxlength="100"></label>
+            <label>Button path<input name="action_path" required maxlength="180" placeholder="/contact"></label>
+          </div>
+          <details id="figma-settings" hidden>
+            <summary>Import a Figma frame</summary>
+            <label>File key<input name="file_key" autocomplete="off"></label>
+            <label>Frame node ID<input name="node_id" placeholder="1:1" autocomplete="off"></label>
+          </details>
+          <div class="source-note"><span>Design source</span><strong id="design-source">Sample Figma frame</strong></div>
+          <button class="primary full" id="generate" type="submit">Generate review</button>
+        </form>
+      </section>
+      <div class="output">
+        <section class="card" aria-labelledby="review-heading">
+          <div class="card-title review-title">
+            <div><h2 id="review-heading">Draft review</h2><p id="review-subtitle">Your generated page will appear here.</p></div>
+            <span id="status" class="status" hidden></span>
+          </div>
+          <div id="review" class="review empty">
+            <div class="empty-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+            <h3>Start with the brief</h3>
+            <p>Generate a review to see the page copy and the Gutenberg blocks.</p>
+          </div>
+          <div id="actions" class="actions" hidden>
+            <div class="action-info" id="revision"></div>
+            <div class="action-controls">
+              <a id="markup" target="_blank" rel="noopener">View Gutenberg blocks</a>
+              <button id="approve" class="primary" type="button" hidden>Approve revision</button>
+              <button id="deliver" class="primary" type="button" hidden>Create draft</button>
+              <button id="reconcile" class="primary" type="button" hidden>Check destination</button>
+              <a id="draft-link" class="primary" target="_blank" rel="noopener" hidden>Open saved draft</a>
+            </div>
+            <label class="simulate" id="simulate-row" hidden><input id="simulate" type="checkbox"> Simulate a lost delivery reply</label>
+          </div>
+        </section>
+        <section id="activity-card" class="card activity" aria-labelledby="activity-heading" hidden>
+          <div class="card-title"><div><h2 id="activity-heading">Run history</h2><p>Recorded events for this revision</p></div></div>
+          <ol id="activity-list"></ol>
+        </section>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

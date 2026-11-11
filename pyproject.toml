@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "brief-to-wordpress"
+version = "0.1.0"
+description = "Review and deliver a component-based WordPress draft from a brief and Figma frame"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "httpx>=0.27,<1",
+  "mcp>=1.20,<2",
+  "pydantic>=2.8,<3",
+  "uvicorn>=0.30,<1",
+]
+
+[tool.setuptools.packages.find]
+include = ["brief_to_wordpress*"]
+
+[tool.setuptools.package-data]
+brief_to_wordpress = ["fixtures/*.json", "static/*.html", "static/*.css", "static/*.js"]

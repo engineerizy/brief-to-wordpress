@@ -1,0 +1,27 @@
+{
+  "nodes": {
+    "1:1": {
+      "document": {
+        "name": "Northline Studio | Launch services",
+        "type": "FRAME",
+        "children": [
+          {
+            "name": "@hero",
+            "type": "FRAME",
+            "children": [{"type": "TEXT", "characters": "A clear offer for small design teams."}]
+          },
+          {
+            "name": "@benefits",
+            "type": "FRAME",
+            "children": [{"type": "TEXT", "characters": "Show the three deliverables as a short list."}]
+          },
+          {
+            "name": "@cta",
+            "type": "FRAME",
+            "children": [{"type": "TEXT", "characters": "End with a single consultation link."}]
+          }
+        ]
+      }
+    }
+  }
+}
